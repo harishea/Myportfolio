@@ -340,15 +340,20 @@
         out the form below or connect with me
         on social media.</p>
 
-      <form class="contact-form" class="form" action="https://api.web3forms.com/submit" method="POST" data-aos="fade-up"
-        data-aos-delay="200">
-        <input type="hidden" name="access_key" value="f0736541-f940-4530-8c9d-ea85a8118a23" />
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="6" cols="90" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn primary-btn" style="border-radius: 10px;">Send Message <i
-            class="fas fa-paper-plane"></i></button>
-      </form>
+<form class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-aos="fade-up" data-aos-delay="200">
+    
+    <input type="hidden" name="access_key" value="f0736541-f940-4530-8c9d-ea85a8118a23" />
+
+    <input type="hidden" name="subject" value="New Submission from Portfolio Website">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="6" cols="90" placeholder="Your Message" required></textarea>
+
+    <button type="submit" class="btn primary-btn" style="border-radius: 10px;">
+        Send Message <i class="fas fa-paper-plane"></i>
+    </button>
+</form>
       <div class="social-links" data-aos="fade-up" data-aos-delay="300">
         <a href="https://www.linkedin.com/in/harish-e-a-0273bb294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
           target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -371,3 +376,4 @@
 
 
 </html>
+
