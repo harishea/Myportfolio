@@ -34,47 +34,14 @@
   --border-radius-lg: 25px;
 }
 
-/* --- NEW: PARTICLES CANVAS --- */
-#particles-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2; /* Behind everything */
-  pointer-events: none;
-}
-
-/* --- MOUSE FOLLOWER DECOR --- */
-.mouse-follower {
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  border: 2px solid var(--accent-color-light);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-}
-body.dark-mode .mouse-follower {
-  border-color: var(--accent-color-dark);
-}
-.mouse-follower.active {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0, 188, 212, 0.2);
-}
-body.dark-mode .mouse-follower.active {
-  background-color: rgba(102, 252, 241, 0.2);
-}
-
 /* --- THEME APPLICATION --- */
 body {
   font-family: var(--font-body);
   background-color: var(--bg-color-light); /* This acts as a fallback */
   color: var(--text-color-light);
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
   padding-top: 80px;
 }
 body.dark-mode {
@@ -170,68 +137,6 @@ body.dark-mode .secondary-btn:hover {
   color: var(--bg-color-dark);
 }
 
-/* --- HEADER --- */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5%;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
-
-  /* GLASS EFFECT FOR HEADER */
-  background-color: var(--glass-bg-light);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-  border-bottom: 1px solid var(--glass-border-light);
-  box-shadow: 0 2px 10px var(--shadow-light);
-}
-body.dark-mode .header {
-  background-color: var(--glass-bg-dark);
-  border-bottom: 1px solid var(--glass-border-dark);
-  box-shadow: 0 2px 10px var(--shadow-dark);
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-}
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
-.nav-item {
-  padding: 8px 15px;
-  border-radius: var(--border-radius-lg);
-  font-weight: 500;
-  color: var(--text-color-light);
-  transition: all 0.3s ease;
-}
-body.dark-mode .nav-item {
-  color: var(--text-color-dark);
-}
-/* MODIFIED: Separated active and hover styles */
-.nav-item.active,
-.nav-item:hover {
-  background: var(--accent-gradient-light);
-  color: white;
-}
-.nav-item:not(.active):hover {
-  transform: translateY(-3px);
-}
-body.dark-mode .nav-item.active,
-body.dark-mode .nav-item:hover {
-  background: var(--accent-gradient-dark);
-  color: var(--bg-color-dark);
-}
-
 .logo {
   font-family: var(--font-heading);
   font-size: 1.8rem;
@@ -264,17 +169,6 @@ body.dark-mode .theme-toggle-btn:hover {
   position: relative;
   overflow: hidden;
   padding: 100px 5%;
-}
-.hero-bg-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--soft-gradient-bg-light);
-  transition: background 0.4s ease;
-  z-index: -1;
-  opacity: 0.3;
 }
 body.dark-mode .hero-bg-gradient {
   background: var(--soft-gradient-bg-dark);
@@ -320,7 +214,9 @@ body.dark-mode .highlight-name {
   margin-bottom: 30px;
   max-width: 400px;
   box-shadow: 0 4px 10px var(--shadow-light);
-  transition: background-color 0.4s ease, border-color 0.4s ease,
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
     box-shadow 0.4s ease;
   background-color: var(--glass-bg-light);
   backdrop-filter: blur(8px);
@@ -673,7 +569,9 @@ body.dark-mode .social-links a:hover {
   text-align: center;
   color: #777;
   font-size: 0.9rem;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
   background-color: transparent;
 }
 body.dark-mode .footer {
@@ -872,5 +770,247 @@ body.dark-mode .internship-logo img {
   }
   .internship-details ul {
     text-align: left;
+  }
+}
+* --- LOGO BRANDING --- */ .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.logo-accent {
+  color: #00e5ff; /* Attractive Cyan */
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+/* --- SERVICES SINGLE ROW --- */
+.services-row {
+  display: flex; /* Single Row */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.glass-service-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.glass-service-card:hover {
+  transform: translateY(-10px);
+  border-color: #00e5ff;
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: #00e5ff;
+  margin-bottom: 15px;
+}
+
+/* --- MEDIA QUERY FOR ROW --- */
+@media (max-width: 900px) {
+  .services-row {
+    flex-direction: column; /* Stack on small screens */
+  }
+  .navbar-pill {
+    width: 95%;
+    padding: 10px 15px;
+  }
+}
+/* --- NEW GLASSY PILL NAVBAR --- */
+.header {
+  position: fixed;
+  top: 25px; /* Floating look */
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
+
+.glassy-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 15, 15, 0.7); /* Dark semi-transparent */
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  padding: 10px 35px;
+  border-radius: 50px;
+  width: 90%;
+  max-width: 950px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Nav Buttons with Rounded Hover */
+.nav-btn {
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #00e5ff;
+}
+
+/* Subdued Logo Branding */
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.logo-accent {
+  color: #00e5ff;
+  /* Reduced glow as requested */
+  text-shadow: none;
+}
+
+/* Minimalist Dark Mode Toggle */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: #00e5ff;
+  transform: rotate(15deg);
+}
+
+/* Ensure no mouse follower styles remain */
+.mouse-follower {
+  display: none !important;
+}
+/* --- Desktop Glassy Nav (3 each side) --- */
+.glassy-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 15, 15, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 25px;
+  border-radius: 50px;
+  width: 90%;
+  max-width: 1100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links-group {
+  display: flex;
+  gap: 15px;
+  flex: 1;
+}
+
+.left-group {
+  justify-content: flex-start;
+}
+.right-group {
+  justify-content: flex-end;
+}
+
+.menu-trigger {
+  display: none;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* --- Fixed Professional Theme Button --- */
+.fixed-theme-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #000;
+  color: #00e5ff;
+  border: 1px solid #00e5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.fixed-theme-btn:hover {
+  transform: scale(1.1);
+  background: #00e5ff;
+  color: #000;
+}
+
+/* --- MOBILE MEDIA QUERY (Proper Swipe & Fixed Toggle) --- */
+@media (max-width: 850px) {
+  .menu-trigger {
+    display: block;
+  }
+
+  /* Hide individual groups into a single swipe container */
+  .nav-links-group {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Swipe from left */
+    height: 100vh;
+    width: 75%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3000;
+  }
+
+  /* When active class is added via JS */
+  .nav-links-group.active {
+    left: 0;
+  }
+
+  /* Combine left and right groups in mobile view */
+  .right-group {
+    display: none;
+  } /* Hide the duplicate desktop group */
+
+  .nav-btn {
+    font-size: 1.5rem;
+    width: 80%;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .glassy-nav {
+    width: 95%;
+    padding: 10px 20px;
   }
 }
