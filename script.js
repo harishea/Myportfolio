@@ -60,3 +60,31 @@ document.addEventListener("DOMContentLoaded", () => {
     offset: 100,
   });
 });
+
+// --- 4. CERTIFICATE IMAGE MODAL (LIGHTBOX) ---
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-img");
+const closeModalBtn = document.querySelector(".close-modal");
+const certImages = document.querySelectorAll(".marquee-track img");
+
+if (modal && modalImg && certImages.length > 0) {
+  // Open modal on image click
+  certImages.forEach((img) => {
+    img.addEventListener("click", function () {
+      modal.style.display = "flex";
+      modalImg.src = this.src; // Take the src of the clicked image
+    });
+  });
+
+  // Close modal when clicking the 'X' button
+  closeModalBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Close modal when clicking anywhere outside the image
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+}
