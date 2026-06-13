@@ -1362,8 +1362,61 @@ body.dark-mode .marquee-track img:hover {
     opacity: 1;
   }
 }
-html, body {
+/* =========================================
+   Featured Videos Section
+========================================= */
 
-  overflow-x: hidden; /* Prevents any accidental horizontal scrolling */
+.videos-section {
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.videos-grid {
+  display: grid;
+  /* Increased from 320px to 380px so the videos stay larger before stacking on smaller screens */
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 30px;
+  /* Increased from 1200px to 1400px to allow the frames to stretch wider on large screens */
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.video-item {
+  border-radius: 15px;
+  /* Reduced padding from 15px to 10px so the iframe takes up more space inside the card */
+  padding: 10px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.video-item:hover {
+  transform: translateY(-10px);
+}
+
+/* 16:9 Aspect Ratio Wrapper for Responsive YouTube Iframes */
+.video-wrapper {
   position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: transparent; /* Removed the black background */
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.video-item h3 {
+  /* Removed color: #fff; so it automatically uses your global heading color */
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 10px 0 5px;
 }
