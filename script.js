@@ -88,3 +88,30 @@ if (modal && modalImg && certImages.length > 0) {
     }
   });
 }
+// --- 1. MOBILE MENU LEFT-SWIPE LOGIC ---
+const menuTrigger = document.querySelector(".menu-trigger");
+const navMenu = document.querySelector(".nav-links-wrapper");
+
+if (menuTrigger && navMenu) {
+  // Toggle menu open/close
+  menuTrigger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    const menuIcon = menuTrigger.querySelector("i");
+    if (menuIcon) {
+      menuIcon.classList.toggle("fa-bars");
+      menuIcon.classList.toggle("fa-times");
+    }
+  });
+
+  // Close menu when any link is clicked & reset icon
+  document.querySelectorAll(".nav-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      const menuIcon = menuTrigger.querySelector("i");
+      if (menuIcon) {
+        menuIcon.classList.add("fa-bars");
+        menuIcon.classList.remove("fa-times");
+      }
+    });
+  });
+}
