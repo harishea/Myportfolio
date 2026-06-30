@@ -1,22 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- 1. MOBILE MENU LEFT-SWIPE LOGIC ---
   const menuTrigger = document.querySelector(".menu-trigger");
-  const navMenu = document.querySelector(".nav-links-group.left-group");
+  const navMenu = document.querySelector(".nav-links-wrapper");
 
   if (menuTrigger && navMenu) {
+    // Toggle menu open/close
     menuTrigger.addEventListener("click", () => {
       navMenu.classList.toggle("active");
       const menuIcon = menuTrigger.querySelector("i");
       if (menuIcon) {
-        // Toggles between Hamburger and Close icon
         menuIcon.classList.toggle("fa-bars");
         menuIcon.classList.toggle("fa-times");
       }
     });
 
-    // Close menu when a link is clicked
+    // Close menu when any link is clicked & reset icon
     document.querySelectorAll(".nav-btn").forEach((btn) => {
-      btn.addEventListener("click", () => navMenu.classList.remove("active"));
+      btn.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        const menuIcon = menuTrigger.querySelector("i");
+        if (menuIcon) {
+          menuIcon.classList.add("fa-bars");
+          menuIcon.classList.remove("fa-times");
+        }
+      });
     });
   }
 
@@ -86,32 +93,5 @@ if (modal && modalImg && certImages.length > 0) {
     if (e.target === modal) {
       modal.style.display = "none";
     }
-  });
-}
-// --- 1. MOBILE MENU LEFT-SWIPE LOGIC ---
-const menuTrigger = document.querySelector(".menu-trigger");
-const navMenu = document.querySelector(".nav-links-wrapper");
-
-if (menuTrigger && navMenu) {
-  // Toggle menu open/close
-  menuTrigger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    const menuIcon = menuTrigger.querySelector("i");
-    if (menuIcon) {
-      menuIcon.classList.toggle("fa-bars");
-      menuIcon.classList.toggle("fa-times");
-    }
-  });
-
-  // Close menu when any link is clicked & reset icon
-  document.querySelectorAll(".nav-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      const menuIcon = menuTrigger.querySelector("i");
-      if (menuIcon) {
-        menuIcon.classList.add("fa-bars");
-        menuIcon.classList.remove("fa-times");
-      }
-    });
   });
 }
