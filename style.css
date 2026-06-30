@@ -1420,3 +1420,195 @@ body.dark-mode .marquee-track img:hover {
   font-weight: 600;
   margin: 10px 0 5px;
 }
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents any accidental horizontal scrolling */
+  position: relative;
+}
+/* --- UNIFIED NAV STYLES --- */
+.glassy-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 15, 15, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 25px;
+  border-radius: 50px;
+  width: 90%;
+  max-width: 1100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative; /* Allows absolute positioning of the logo */
+}
+
+.nav-links-wrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+/* --- DESKTOP VIEW (Split Links) --- */
+@media (min-width: 851px) {
+  .menu-trigger {
+    display: none; /* Hide hamburger on desktop */
+  }
+  .glassy-nav {
+    justify-content: center;
+  }
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+  .nav-links-wrapper {
+    justify-content: space-between;
+  }
+  /* This creates a gap in the middle for your logo by pushing the 3rd and 4th links apart */
+  .nav-links-wrapper .nav-btn:nth-child(3) {
+    margin-right: auto;
+  }
+  .nav-links-wrapper .nav-btn:nth-child(4) {
+    margin-left: auto;
+  }
+}
+
+/* --- MOBILE VIEW (Swipe Menu) --- */
+@media (max-width: 850px) {
+  .menu-trigger {
+    display: block;
+    z-index: 3001;
+  }
+
+  .logo {
+    z-index: 3001; /* Keeps logo above the dark overlay */
+  }
+
+  .nav-links-wrapper {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Hidden off-screen to the left */
+    height: 100vh;
+    width: 75%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3000;
+  }
+
+  /* Added via JavaScript when menu is clicked */
+  .nav-links-wrapper.active {
+    left: 0;
+  }
+
+  .nav-btn {
+    font-size: 1.5rem;
+    width: 80%;
+    text-align: center;
+  }
+
+  .glassy-nav {
+    width: 95%;
+    padding: 10px 20px;
+  }
+}
+/* --- MOBILE VIEW (Frosted Glass Slide-out Drawer) --- */
+@media (max-width: 850px) {
+  .menu-trigger {
+    display: block;
+    z-index: 3001;
+    color: #ffffff;
+    font-size: 1.6rem;
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .menu-trigger:hover {
+    color: #00e5ff;
+    transform: scale(1.1);
+  }
+
+  .logo {
+    z-index: 3001;
+  }
+
+  /* --- Frosted Glass Mobile Drawer --- */
+  .nav-links-wrapper {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Hidden off-screen to the left */
+    height: 100vh;
+    width: 78%;
+    max-width: 320px;
+
+    /* Deep Frosted Glass Effect */
+    background: rgba(18, 24, 32, 0.65);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+
+    /* Attractive Glowing Cyan Right Border & Shadow */
+    border-right: 1px solid rgba(0, 229, 255, 0.25);
+    box-shadow:
+      15px 0 40px rgba(0, 0, 0, 0.7),
+      inset -5px 0 20px rgba(0, 229, 255, 0.05);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+
+    /* Smooth Spring-like Slide Animation */
+    transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 3000;
+  }
+
+  /* Slide in smoothly when active class is added */
+  .nav-links-wrapper.active {
+    left: 0;
+  }
+
+  /* --- Styled Navigation Pills Inside Drawer --- */
+  .nav-links-wrapper .nav-btn {
+    font-size: 1.25rem;
+    font-weight: 600;
+    width: 80%;
+    padding: 14px 20px;
+    text-align: center;
+    border-radius: 16px;
+    color: #e0e0e0;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Attractive Hover & Touch Glow Effect */
+  .nav-links-wrapper .nav-btn:hover,
+  .nav-links-wrapper .nav-btn:active {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 229, 255, 0.2),
+      rgba(0, 188, 212, 0.05)
+    );
+    border-color: #00e5ff;
+    color: #ffffff;
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.25);
+  }
+
+  /* Navbar Container Adjustment */
+  .glassy-nav {
+    width: 92%;
+    padding: 12px 22px;
+  }
+}
