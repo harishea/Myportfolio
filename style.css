@@ -173,7 +173,6 @@ body.dark-mode .theme-toggle-btn:hover {
 body.dark-mode .hero-bg-gradient {
   background: var(--soft-gradient-bg-dark);
 }
-
 .hero-content {
   position: relative;
   z-index: 1;
@@ -184,6 +183,7 @@ body.dark-mode .hero-bg-gradient {
   gap: 50px;
   max-width: 1200px;
   margin: auto;
+  margin-top: 90px;
 }
 .hero-text {
   flex: 1;
