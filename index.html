@@ -22,8 +22,9 @@
   <link rel="canonical" href="https://itshk.vercel.app/" />
   <link rel="shortcut icon" href="images/Fav icon.png" type="image/x-icon">
 
-  <!-- Preload Hero Image for LCP Optimization -->
-  <link rel="preload" as="image" href="images/Home p1.webp" fetchpriority="high">
+  <!-- Preload Hero Image conditionally for LCP Optimization -->
+  <link rel="preload" as="image" href="images/Home p1-mobile.webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="images/Home p1.webp" media="(min-width: 769px)" fetchpriority="high">
 
   <!-- JSON-LD for SEO -->
   <script type="application/ld+json">
@@ -47,7 +48,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
+  <!-- Icons (Deferred) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print"
     onload="this.media='all'">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print"
@@ -94,8 +95,9 @@
           </div>
         </div>
         <div class="hero-image-container">
-          <img src="images/Home p1.webp" alt="Portrait of Harish E A" class="hero-profile-image" fetchpriority="high"
-            width="600" height="500">
+          <img src="images/Home p1.webp" srcset="images/Home p1-mobile.webp 400w, images/Home p1.webp 800w"
+            sizes="(max-width: 768px) 400px, 800px" alt="Portrait of Harish E A" class="hero-profile-image"
+            fetchpriority="high" width="600" height="500">
         </div>
       </div>
     </section>
@@ -494,7 +496,8 @@
     <p>&copy; 2026 Harish E A. All rights reserved.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js" defer></script>
+  <!-- Added async to reduce main thread blocking during page load -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js" async defer></script>
   <script src="script.js" defer></script>
 </body>
 
