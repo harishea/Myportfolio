@@ -4,12 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harish E A | Top Product Developer & 10x Marketing Pro</title>
+
+  <!-- SEO & Open Graph Meta Tags -->
+  <title>Harish E A | Top Product Developer & Digital Marketing Pro</title>
   <meta name="description"
     content="Boost growth with high-impact product development and digital marketing. Explore 10+ scalable web apps and proven marketing strategies by Harish E A.">
+  <meta name="keywords"
+    content="Harish E A, Product Developer, Digital Marketing Specialist, UI/UX Designer, Frontend Developer, Web Development, Portfolio">
+  <meta name="author" content="Harish E A">
+  <meta property="og:title" content="Harish E A | Product Developer & Marketer">
+  <meta property="og:description"
+    content="Boost growth with high-impact product development and digital marketing. Explore scalable web apps and strategies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itshk.vercel.app/">
+  <meta property="og:image" content="https://itshk.vercel.app/images/home p1.webp">
+
   <link rel="canonical" href="https://itshk.vercel.app/" />
   <link rel="shortcut icon" href="images/Fav icon.png" type="image/x-icon">
-  <!-- For SEO -->
+
+  <!-- Preload Hero Image for LCP Optimization -->
+  <link rel="preload" as="image" href="images/Home p1.webp" fetchpriority="high">
+
+  <!-- JSON-LD for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,15 +42,16 @@
   }
   </script>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print"
+    onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print"
+    onload="this.media='all'">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -42,24 +59,20 @@
 <body>
   <canvas id="particles-canvas"></canvas>
 
-  <div class="mouse-follower"></div>
-
   <header class="header">
     <nav class="navbar-pill glassy-nav">
-
-      <a href="#home" class="logo">Its<span class="logo-accent">HK</span></a>
+      <a href="#home" class="logo" aria-label="Home">Its<span class="logo-accent">HK</span></a>
 
       <div class="nav-links-wrapper">
         <a href="#home" class="nav-btn">Home</a>
         <a href="#about" class="nav-btn">About</a>
         <a href="#services" class="nav-btn">Service</a>
-
         <a href="#projects" class="nav-btn">Projects</a>
         <a href="#freelance" class="nav-btn">Freelance</a>
         <a href="#contact" class="nav-btn">Contact</a>
       </div>
 
-      <button class="menu-trigger"><i class="fas fa-bars"></i></button>
+      <button class="menu-trigger" aria-label="Open mobile navigation menu"><i class="fas fa-bars"></i></button>
     </nav>
   </header>
 
@@ -67,144 +80,123 @@
     <section id="home" class="hero-section">
       <div class="hero-bg-gradient"></div>
       <div class="hero-content">
-        <div class="hero-text" data-aos="fade-right">
+        <div class="hero-text">
           <h1>I'm <span class="highlight-name">Harish E A</span>, <br>Digital Marketing Specialist & Product Developer
           </h1>
-          <div class="quote-box" data-aos="fade-up" data-aos-delay="200">
+          <div class="quote-box">
             <i class="fas fa-quote-left"></i>
-            <p>"Harish’s exceptional product design and web development expertise ensure seamless digital experiences.
-              Highly Recommended."</p>
+            <p>"Harish’s exceptional Digital Marketing and Product Development expertise ensure seamless digital
+              experiences. Highly Recommended."</p>
           </div>
-          <div class="hero-cta-buttons" data-aos="fade-up" data-aos-delay="400">
+          <div class="hero-cta-buttons">
             <a href="#projects" class="btn primary-btn">Portfolio <i class="fas fa-long-arrow-alt-right"></i></a>
             <a href="#contact" class="btn secondary-btn">Hire me</a>
           </div>
         </div>
         <div class="hero-image-container">
-          <img src="images/Gemini profile pic.png" alt="Harish E A" class="hero-profile-image" data-aos="flip-left"
-            data-aos-duration="1500">
+          <img src="images/Home p1.webp" alt="Portrait of Harish E A" class="hero-profile-image" fetchpriority="high"
+            width="600" height="500">
         </div>
       </div>
     </section>
 
     <section id="about" class="about-section">
-      <h2 data-aos="fade-up">About Me</h2>
+      <h2>About Me</h2>
       <div class="about-content-wrapper">
         <div class="about-image-side">
-          <img src="images/pic 2.png" alt="Harish Kumar" class="about-profile-image" data-aos="flip-right"
-            data-aos-duration="1500">
+          <img src="images/pic 2.webp" alt="Harish E A" class="about-profile-image" loading="lazy" decoding="async"
+            width="400" height="400">
         </div>
-        <div class="about-text-side" data-aos="fade-left">
+        <div class="about-text-side">
           <h3>I build engaging digital experiences.</h3>
-          <p>As a passionate Product Developer and Digital Marketer, I bridge the gap between aesthetics and
-            functionality.
-            My expertise spans user research, wireframing, prototyping, and front-end development, ensuring a seamless
-            journey from concept to launch.</p>
+          <p>As a passionate Product Developer and Digital Marketing Specialist, I bridge the gap between aesthetics and
+            functionality. My expertise spans user research, wireframing, prototyping, and front-end development,
+            ensuring a seamless journey from concept to launch.</p>
           <p>I focus on creating intuitive, visually appealing, and high-performing digital products that solve real
             user problems and deliver business value.</p>
-          <a href="images/Harish_E_A_Resume.pdf" download target="_blank" class="btn primary-btn">Download
-            Resume <i class="fas fa-download"></i></a>
+          <a href="images/Harish_E_A_Resume.pdf" download target="_blank" class="btn primary-btn">Download Resume <i
+              class="fas fa-download"></i></a>
         </div>
       </div>
     </section>
 
     <section id="education" class="education-section">
-      <h2 data-aos="fade-up">Education</h2>
+      <h2>Education</h2>
       <div class="education-container">
-        <div class="education-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="education-card">
           <h3>Bachelor of Engineering - CSE with Honours</h3>
-          <p class="institution">GRT Institute of Engineering and Technology,Tiruttani</p>
+          <p class="institution">GRT Institute of Engineering and Technology, Tiruttani</p>
           <p class="details">2022 - 2026 | 8.88 CGPA</p>
         </div>
-        <div class="education-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="education-card">
           <h3>Higher Secondary Certificate (HSC)</h3>
-          <p class="institution">Vaariar Matric hr sec School</p>
+          <p class="institution">Vaariar Matric Hr Sec School</p>
           <p class="details">2020 - 2022 | 72%</p>
         </div>
       </div>
     </section>
 
     <section id="services" class="services-section">
-      <h2 class="section-title" data-aos="fade-up">Professional Services</h2>
+      <h2 class="section-title">Professional Services</h2>
       <div class="services-row">
-        <div class="glass-service-card" data-aos="fade-up">
+        <div class="glass-service-card">
           <div class="service-icon"><i class="fas fa-layer-group"></i></div>
           <h3>UI/UX Design</h3>
           <p>Creating seamless user experiences through intuitive design and research.</p>
         </div>
-        <div class="glass-service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-service-card">
           <div class="service-icon"><i class="fas fa-terminal"></i></div>
           <h3>Web Development</h3>
           <p>Building responsive, modern web applications with clean, efficient code.</p>
         </div>
-        <div class="glass-service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-service-card">
           <div class="service-icon"><i class="fas fa-palette"></i></div>
           <h3>Branding</h3>
           <p>Developing unique visual identities that stand out in the digital market.</p>
         </div>
       </div>
     </section>
+
     <section id="skills" class="skills-section">
-      <h2 data-aos="fade-up">My Toolkit</h2>
+      <h2>My Toolkit</h2>
       <div class="skills-grid">
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="0"> <i class="devicon-python-plain"></i>
-          <span>Python</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="50"> <i class="devicon-figma-plain"></i>
-          <span>Figma</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="100"> <i class="devicon-canva-original"></i>
-          <span>Canva</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="150"> <i class="devicon-html5-plain"></i>
-          <span>HTML</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="200"> <i class="devicon-css3-plain"></i>
-          <span>CSS</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="250"> <i class="devicon-javascript-plain"></i>
-          <span>JavaScript</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="300"> <i class="devicon-react-original"></i>
-          <span>React</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="350"> <i class="devicon-git-plain"></i>
-          <span>Git</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="400"> <i class="devicon-github-original"></i>
-          <span>GitHub</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="450"> <i class="devicon-photoshop-plain"></i>
-          <span>Adobe</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="500"> <i class="devicon-bootstrap-plain"></i>
-          <span>Bootstrap</span>
-        </div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="550"> <i class="fas fa-brain"></i> <span>Gen
-            AI</span></div>
+        <div class="skill-item"> <i class="devicon-python-plain"></i><span>Python</span></div>
+        <div class="skill-item"> <i class="devicon-figma-plain"></i><span>Figma</span></div>
+        <div class="skill-item"> <i class="devicon-canva-original"></i><span>Canva</span></div>
+        <div class="skill-item"> <i class="devicon-html5-plain"></i><span>HTML</span></div>
+        <div class="skill-item"> <i class="devicon-css3-plain"></i><span>CSS</span></div>
+        <div class="skill-item"> <i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+        <div class="skill-item"> <i class="devicon-react-original"></i><span>React</span></div>
+        <div class="skill-item"> <i class="devicon-git-plain"></i><span>Git</span></div>
+        <div class="skill-item"> <i class="devicon-github-original"></i><span>GitHub</span></div>
+        <div class="skill-item"> <i class="devicon-photoshop-plain"></i><span>Adobe</span></div>
+        <div class="skill-item"> <i class="devicon-bootstrap-plain"></i><span>Bootstrap</span></div>
+        <div class="skill-item"> <i class="fas fa-brain"></i><span>Gen AI</span></div>
       </div>
     </section>
 
     <section id="internships" class="internships-section">
-      <h2 data-aos="fade-up">Internship Experience</h2>
+      <h2>Internship Experience</h2>
       <div class="internship-container">
-        <div class="internship-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="internship-item">
           <div class="internship-logo">
-            <img src="images/Company Logos/WOrely ventures.jpg" alt="Company Logo">
+            <img src="images/Company Logos/WOrely ventures.webp" alt="Worley Ventures Logo" loading="lazy"
+              decoding="async" width="80" height="80">
           </div>
           <div class="internship-details">
             <h3>Front-End Developer Intern</h3>
             <p class="company">Worley Ventures | On-site</p>
-            <p class="duration">Aug 2025 - Oct 2024</p>
+            <p class="duration">Aug 2024 - Oct 2024</p>
             <ul>
               <li>Developed responsive UI components for client websites using React and CSS3.</li>
               <li>Collaborated with the design team to translate Figma mockups into pixel-perfect web pages.</li>
             </ul>
           </div>
         </div>
-        <div class="internship-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="internship-item">
           <div class="internship-logo">
-            <img src="images/Company Logos/Techinta Logo BLUE.png" alt="Company Logo">
+            <img src="images/Company Logos/Techinta Logo BLUE.webp" alt="Techinta Logo" loading="lazy" decoding="async"
+              width="80" height="80">
           </div>
           <div class="internship-details">
             <h3>UI/UX Design Intern</h3>
@@ -216,9 +208,10 @@
             </ul>
           </div>
         </div>
-        <div class="internship-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="internship-item">
           <div class="internship-logo">
-            <img src="images/Company Logos/Infotact.png" alt="Company Logo">
+            <img src="images/Company Logos/Infotact.webp" alt="Infotact Logo" loading="lazy" decoding="async" width="80"
+              height="80">
           </div>
           <div class="internship-details">
             <h3>UI UX Design Intern</h3>
@@ -230,9 +223,10 @@
             </ul>
           </div>
         </div>
-        <div class="internship-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="internship-item">
           <div class="internship-logo">
-            <img src="images/Company Logos/nuada.png" alt="Company Logo">
+            <img src="images/Company Logos/nuada.webp" alt="Nuada Logo" loading="lazy" decoding="async" width="80"
+              height="80">
           </div>
           <div class="internship-details">
             <h3>Graphic Design Intern</h3>
@@ -241,8 +235,7 @@
             <ul>
               <li>Collaborated with team members to translate requirements into effective design solutions aligned with
                 brand guidelines.</li>
-              <li>Created and optimized marketing materials for digital campaigns, ensuring consistency and high-quality
-                visuals across platforms.</li>
+              <li>Created and optimized marketing materials for digital campaigns.</li>
             </ul>
           </div>
         </div>
@@ -250,20 +243,22 @@
     </section>
 
     <section id="projects" class="projects-section">
-      <h2 data-aos="fade-up">My Projects</h2>
+      <h2>My Projects</h2>
       <div class="projects-grid">
-        <div class="project-item" data-aos="fade-up" data-aos-delay="100">
-          <img src="images/UI UX Case study.png" alt="Project 1">
+        <div class="project-item">
+          <img src="images/UI UX Case study.webp" alt="Travel App UI UX Case Study" loading="lazy" decoding="async"
+            width="320" height="250">
           <div class="project-info">
             <h3>Travel App UI/UX Case Study</h3>
             <div class="project-links">
-              <a href="https://www.figma.com/proto/kPbf0NrcO4KbHIFEXtU4al/Trackn-Trip-Travel-and-Tourism-App?page-id=0%3A1&node-id=7-49&viewport=-399%2C453%2C0.78&t=da5L3bKnDBR3IJuT-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=145%3A2357"
-                target="_blank"><i class="fab fa-figma"></i> Figma</a>
+              <a href="https://www.figma.com/proto/..." target="_blank" aria-label="View on Figma"><i
+                  class="fab fa-figma"></i> Figma</a>
             </div>
           </div>
         </div>
-        <div class="project-item" data-aos="fade-up" data-aos-delay="300">
-          <img src="images/TrageX project.png" alt="Project 2">
+        <div class="project-item">
+          <img src="images/TrageX project.webp" alt="TradeX Trading Website" loading="lazy" decoding="async" width="320"
+            height="250">
           <div class="project-info">
             <h3>Trading Website</h3>
             <div class="project-links">
@@ -273,8 +268,9 @@
             </div>
           </div>
         </div>
-        <div class="project-item" data-aos="fade-up" data-aos-delay="500">
-          <img src="images/Nuada Work.png" alt="Project 3">
+        <div class="project-item">
+          <img src="images/Nuada Work.webp" alt="Nuada Brand Identity Design" loading="lazy" decoding="async"
+            width="320" height="250">
           <div class="project-info">
             <h3>Brand Identity Design</h3>
             <div class="project-links">
@@ -283,19 +279,19 @@
             </div>
           </div>
         </div>
-        <div class="project-item" data-aos="fade-up" data-aos-delay="700">
-          <img src="images/Instagram WOrk.png" alt="Project 4">
+        <div class="project-item">
+          <img src="images/Instagram WOrk.webp" alt="Instagram App Clone" loading="lazy" decoding="async" width="320"
+            height="250">
           <div class="project-info">
             <h3>Instagram App UI/UX</h3>
             <div class="project-links">
-              <a href="https://www.figma.com/design/Xo5igDouokyJpk46THIWAz/Instagram-Clone?node-id=15-104&t=k14BokOxFcOVDFIN-1"
-                target="_blank"><i class="fab fa-figma"></i> Figma</a>
+              <a href="https://www.figma.com/design/..." target="_blank"><i class="fab fa-figma"></i> Figma</a>
             </div>
           </div>
         </div>
-
-        <div class="project-item" data-aos="fade-up" data-aos-delay="900">
-          <img src="images/Portfolio Display Posters.png" alt="Project 6">
+        <div class="project-item">
+          <img src="images/Portfolio Display Posters.webp" alt="Vazhikaati AI App" loading="lazy" decoding="async"
+            width="320" height="250">
           <div class="project-info">
             <h3>Vazhikaati AI</h3>
             <div class="project-links">
@@ -306,8 +302,9 @@
             </div>
           </div>
         </div>
-        <div class="project-item" data-aos="fade-up" data-aos-delay="1000">
-          <img src="images/calcida AI.png" alt="Project 7">
+        <div class="project-item">
+          <img src="images/calcida AI.webp" alt="Calcida AI GPA Calculator" loading="lazy" decoding="async" width="320"
+            height="250">
           <div class="project-info">
             <h3>Calcida AI - GPA calculator</h3>
             <div class="project-links">
@@ -318,41 +315,16 @@
             </div>
           </div>
         </div>
-        <div class="project-item" data-aos="fade-up" data-aos-delay="1100">
-          <img src="images/Portfolio project poster.png" alt="Project 5">
-          <div class="project-info">
-            <h3>Simple Portfolio Website</h3>
-            <div class="project-links">
-              <a href="https://github.com/harishea/Portfolio-Profile.git" target="_blank"><i class="fab fa-github"></i>
-                GitHub</a>
-              <a href="https://itshk.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i>
-                Live</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-item" data-aos="fade-up" data-aos-delay="1200">
-          <img src="images/Domainer project.png" alt="Project 5">
-          <div class="project-info">
-            <h3>Domainer Website</h3>
-            <div class="project-links">
-              <a href="https://github.com/harishea/domain-nudge.git" target="_blank"><i class="fab fa-github"></i>
-                GitHub</a>
-              <a href="domain-nudge.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i>
-                Live</a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <section id="freelance" class="freelance-section">
-      <h2 data-aos="fade-up">Freelance Works</h2>
-      <p class="contact-intro" data-aos="fade-up" data-aos-delay="100" style="margin-bottom: 20px;">Here are some of the
-        projects I've delivered for
-        clients worldwide.</p>
+      <h2>Freelance Works</h2>
+      <p class="contact-intro">Here are some of the projects I've delivered for clients worldwide.</p>
       <div class="projects-grid">
-        <div class="project-item" data-aos="fade-up" data-aos-delay="200">
-          <img src="images/Posters work.png" alt="Freelance Project 1">
+        <div class="project-item">
+          <img src="images/Posters work.webp" alt="Poster Designing Work" loading="lazy" decoding="async" width="320"
+            height="250">
           <div class="project-info">
             <h3>Poster Designing Work</h3>
             <div class="project-links">
@@ -361,8 +333,9 @@
             </div>
           </div>
         </div>
-        <div class="project-item" data-aos="fade-up" data-aos-delay="200">
-          <img src="images/Video cutzz.png" alt="Freelance Project 1">
+        <div class="project-item">
+          <img src="images/Video cutzz.webp" alt="Video Cutzz Project" loading="lazy" decoding="async" width="320"
+            height="250">
           <div class="project-info">
             <h3>Video Cutzz</h3>
             <div class="project-links">
@@ -373,16 +346,14 @@
         </div>
       </div>
     </section>
+
     <section id="volunteering" class="volunteering-section">
-      <h2 data-aos="fade-up">Volunteering Works</h2>
-      <p class="contact-intro" data-aos="fade-up" data-aos-delay="100" style="margin-bottom: 30px;">
-        Community building and leadership experiences that shape my professional journey.
-      </p>
-
+      <h2>Volunteering Works</h2>
+      <p class="contact-intro">Community building and leadership experiences that shape my professional journey.</p>
       <div class="volunteering-grid">
-
-        <div class="volunteering-item" data-aos="fade-up" data-aos-delay="200">
-          <img src="images/Volunteering/v1.jpeg" alt="GDG Design Team Lead">
+        <div class="volunteering-item">
+          <img src="images/Volunteering/v1.webp" alt="GDG Design Team Lead" loading="lazy" decoding="async" width="600"
+            height="250">
           <div class="volunteering-info">
             <h3>Google Developer Groups on Campus GRT IET</h3>
             <h4>Design Team Lead</h4>
@@ -390,9 +361,9 @@
               team and organizing collaborative sessions.</p>
           </div>
         </div>
-
-        <div class="volunteering-item" data-aos="fade-up" data-aos-delay="300">
-          <img src="images/Volunteering/v2.jpeg" alt="Texpo'24 Coordinator">
+        <div class="volunteering-item">
+          <img src="images/Volunteering/v2.webp" alt="Texpo'24 Coordinator" loading="lazy" decoding="async" width="600"
+            height="250">
           <div class="volunteering-info">
             <h3>Texpo'24 - Dept. of Computer Science</h3>
             <h4>Student Overall Coordinator</h4>
@@ -400,9 +371,9 @@
               execute this mega technical event.</p>
           </div>
         </div>
-
-        <div class="volunteering-item" data-aos="fade-up" data-aos-delay="400">
-          <img src="images/Volunteering/v3.jpeg" alt="Club Lead">
+        <div class="volunteering-item">
+          <img src="images/Volunteering/v3.webp" alt="Club Lead" loading="lazy" decoding="async" width="600"
+            height="250">
           <div class="volunteering-info">
             <h3>New Era 3.0 & Bug Squashers 3.0</h3>
             <h4>Club Lead</h4>
@@ -410,9 +381,9 @@
               problem-solving to build their foundational skills.</p>
           </div>
         </div>
-
-        <div class="volunteering-item" data-aos="fade-up" data-aos-delay="500">
-          <img src="images/Volunteering/v4.jpeg" alt="IIC Coordinator">
+        <div class="volunteering-item">
+          <img src="images/Volunteering/v4.webp" alt="IIC Coordinator" loading="lazy" decoding="async" width="600"
+            height="250">
           <div class="volunteering-info">
             <h3>Institute of Innovation Council</h3>
             <h4>Student Coordinator</h4>
@@ -420,95 +391,71 @@
               networking, and collaboration among students.</p>
           </div>
         </div>
-
       </div>
     </section>
+
     <section id="certifications" class="certifications-section">
-      <h2 data-aos="fade-up">Certifications</h2>
-      <p class="contact-intro" data-aos="fade-up" data-aos-delay="100" style="margin-bottom: 40px;">
-        Continuous learning and upskilling to stay ahead in the tech landscape.
-      </p>
-
-      <div class="marquee-wrapper" data-aos="fade-up" data-aos-delay="200">
-
+      <h2>Certifications</h2>
+      <p class="contact-intro">Continuous learning and upskilling to stay ahead in the tech landscape.</p>
+      <div class="marquee-wrapper">
         <div class="marquee-row">
           <div class="marquee-track row-1">
-            <img src="images/Certifications/c1.png" alt="Certification 1">
-            <img src="images/Certifications/c2.png" alt="Certification 2">
-            <img src="images/Certifications/c3.jpeg" alt="Certification 3">
-            <img src="images/Certifications/c4.png" alt="Certification 4">
-            <img src="images/Certifications/c5.png" alt="Certification 5">
-            <img src="images/Certifications/c6.png" alt="Certification 6">
-            <img src="images/Certifications/c1.png" alt="Certification 1">
-            <img src="images/Certifications/c2.png" alt="Certification 2">
-            <img src="images/Certifications/c3.jpeg" alt="Certification 3">
-            <img src="images/Certifications/c4.png" alt="Certification 4">
-            <img src="images/Certifications/c5.png" alt="Certification 5">
-            <img src="images/Certifications/c6.png" alt="Certification 6">
+            <img src="images/Certifications/c1.webp" alt="Certification 1" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c2.webp" alt="Certification 2" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c3.webp" alt="Certification 3" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c4.webp" alt="Certification 4" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c5.webp" alt="Certification 5" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c6.webp" alt="Certification 6" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c1.webp" alt="Certification 1 Copy" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c2.webp" alt="Certification 2 Copy" loading="lazy" width="340" height="240">
           </div>
         </div>
-
         <div class="marquee-row">
           <div class="marquee-track row-2">
-            <img src="images/Certifications/c7.jpeg" alt="Certification 7">
-            <img src="images/Certifications/c8.jpeg" alt="Certification 8">
-            <img src="images/Certifications/c9.jpeg" alt="Certification 9">
-            <img src="images/Certifications/c10.jpeg" alt="Certification 10">
-            <img src="images/Certifications/c11.jpeg" alt="Certification 11">
-            <img src="images/Certifications/c12.png" alt="Certification 12">
-            <img src="images/Certifications/c7.jpeg" alt="Certification 7">
-            <img src="images/Certifications/c8.jpeg" alt="Certification 8">
-            <img src="images/Certifications/c9.jpeg" alt="Certification 9">
-            <img src="images/Certifications/c10.jpeg" alt="Certification 10">
-            <img src="images/Certifications/c11.jpeg" alt="Certification 11">
-            <img src="images/Certifications/c12.png" alt="Certification 12">
+            <img src="images/Certifications/c7.webp" alt="Certification 7" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c8.webp" alt="Certification 8" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c9.webp" alt="Certification 9" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c10.webp" alt="Certification 10" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c11.webp" alt="Certification 11" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c12.webp" alt="Certification 12" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c7.webp" alt="Certification 7 Copy" loading="lazy" width="340" height="240">
+            <img src="images/Certifications/c8.webp" alt="Certification 8 Copy" loading="lazy" width="340" height="240">
           </div>
         </div>
-
       </div>
     </section>
+
     <div id="image-modal" class="image-modal">
       <span class="close-modal">&times;</span>
-      <img class="modal-content" id="modal-img" alt="Enlarged Certificate">
+      <img class="modal-content" id="modal-img" alt="Enlarged Certificate" loading="lazy">
     </div>
+
     <section id="videos" class="videos-section">
-      <h2 data-aos="fade-up">Featured Videos</h2>
-      <p class="contact-intro" data-aos="fade-up" data-aos-delay="100" style="margin-bottom: 30px;">
-        A showcase of my creative cinematography, including my shortfilm and album song.
-      </p>
-
+      <h2>Featured Videos</h2>
+      <p class="contact-intro">A showcase of my creative cinematography, including my shortfilm and album song.</p>
       <div class="videos-grid">
-        <!-- Video 1: Shortfilm -->
-        <div class="video-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="video-item">
           <div class="video-wrapper">
-
-            <!-- Replace YOUR_VIDEO_ID with the actual YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/9q1OKT7B44k?si=XRzqk8SaGlUt-nHz" title="My Shortfilm"
-              frameborder="0"
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/9q1OKT7B44k?si=XRzqk8SaGlUt-nHz"
+              title="The Pain Shortfilm" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
           </div>
           <h3>"THE PAIN" Short Film</h3>
         </div>
-
-        <!-- Video 2: Album Song -->
-        <div class="video-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="video-item">
           <div class="video-wrapper">
-            <!-- Replace YOUR_VIDEO_ID with the actual YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/jvWNcGTQ-RQ?si=jSyxZUFIPB3mxtUv" title="Album Song"
-              frameborder="0"
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/jvWNcGTQ-RQ?si=jSyxZUFIPB3mxtUv"
+              title="The PAIN of PAIN Album Song" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
           </div>
           <h3>"The PAIN of PAIN" Album Song</h3>
         </div>
-
-        <!-- Video 3: Extra Video -->
-        <div class="video-item" data-aos="fade-up" data-aos-delay="500">
+        <div class="video-item">
           <div class="video-wrapper">
-            <!-- Replace YOUR_VIDEO_ID with the actual YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/d_lRGj8XNU0?si=E8rF4JtbIlsop819" title="Extra Video"
-              frameborder="0"
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/d_lRGj8XNU0?si=E8rF4JtbIlsop819"
+              title="Mr Love Album Song" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
           </div>
@@ -518,33 +465,27 @@
     </section>
 
     <section id="contact" class="contact-section">
-      <h2 data-aos="fade-up">Let's Connect!</h2>
-      <p class="contact-intro" data-aos="fade-up" data-aos-delay="100" style="margin-bottom: 20px;">Have a project in
-        mind or just want to chat? Fill
-        out the form below or connect with me
+      <h2>Let's Connect!</h2>
+      <p class="contact-intro">Have a project in mind or just want to chat? Fill out the form below or connect with me
         on social media.</p>
-
-      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-aos="fade-up"
-        data-aos-delay="200">
-
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="f0736541-f940-4530-8c9d-ea85a8118a23" />
-
         <input type="hidden" name="subject" value="New Submission from Portfolio Website">
-
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" rows="6" cols="90" placeholder="Your Message" required></textarea>
-
-        <button type="submit" class="btn primary-btn" style="border-radius: 10px;">
-          Send Message <i class="fas fa-paper-plane"></i>
-        </button>
+        <button type="submit" class="btn primary-btn" style="border-radius: 10px;">Send Message <i
+            class="fas fa-paper-plane"></i></button>
       </form>
-      <div class="social-links" data-aos="fade-up" data-aos-delay="300">
-        <a href="https://www.linkedin.com/in/harishea/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/harishea" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.instagram.com/harishkumar_497/?igsh=c21neHM3aGl4MWZy#" target="_blank"><i
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/harishea/" target="_blank" aria-label="LinkedIn Profile"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/harishea" target="_blank" aria-label="GitHub Profile"><i
+            class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/harishkumar_497/" target="_blank" aria-label="Instagram Profile"><i
             class="fab fa-instagram"></i></a>
-        <a href="https://www.behance.net/harishea" target="_blank"><i class="fab fa-behance"></i></a>
+        <a href="https://www.behance.net/harishea" target="_blank" aria-label="Behance Profile"><i
+            class="fab fa-behance"></i></a>
       </div>
     </section>
   </main>
@@ -553,8 +494,8 @@
     <p>&copy; 2026 Harish E A. All rights reserved.</p>
   </footer>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>
