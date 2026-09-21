@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- 1. SNOWFALL BACKGROUND EFFECT (OPTIMIZED) ---
-  // We can enable this on all devices because disabling 'links' removes 90% of the CPU calculations.
-  if (document.getElementById("particles-canvas")) {
+  // Conditionally load only on desktop screens to prevent main thread blocking on mobile
+  if (document.getElementById("particles-canvas") && window.innerWidth > 768) {
     tsParticles.load("particles-canvas", {
       particles: {
         number: { value: 70, density: { enable: true, value_area: 800 } },
