@@ -262,19 +262,18 @@ h2 {
 }
 .hero-image-container {
   flex: 1;
-  min-width: 450px; /* Gives the image plenty of room */
+  min-width: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* 3. Uncrops and scales the Image */
 .hero-profile-image {
   width: 100%;
-  max-width: 550px; /* Forces it to display very large */
+  max-width: 550px;
   height: auto;
-  object-fit: contain; /* Prevents ANY cropping */
-  border-radius: 0; /* Removes the rounded box effect */
+  object-fit: contain;
+  border-radius: 0;
   filter: drop-shadow(0 15px 35px rgba(0, 255, 255, 0.15));
   animation: gentle-shake 3s ease-in-out infinite;
 }
@@ -298,7 +297,6 @@ h2 {
 }
 
 /* --- CARD & ITEM STYLES --- */
-.service-card,
 .skill-item,
 .project-item,
 .education-card,
@@ -314,7 +312,7 @@ h2 {
     box-shadow 0.3s ease,
     border-color 0.3s ease;
 }
-.service-card:hover,
+
 .skill-item:hover,
 .project-item:hover,
 .education-card:hover,
@@ -379,7 +377,7 @@ h2 {
 .about-text-side {
   flex: 2;
   min-width: 300px;
-  text-align: left; /* Left alignment is critical for readability of paragraphs */
+  text-align: left;
 }
 .about-text-side h3 {
   font-size: 2rem;
@@ -389,7 +387,7 @@ h2 {
   line-height: 1.8;
   margin-bottom: 15px;
   max-width: 700px;
-  color: #c4c4c4; /* Softer text color for reading */
+  color: #c4c4c4;
 }
 
 .skills-grid {
@@ -434,7 +432,7 @@ h2 {
 }
 .project-info {
   padding: 20px;
-  text-align: left; /* Strict left alignment inside cards */
+  text-align: left;
 }
 .project-info h3 {
   font-size: 1.4rem;
@@ -465,7 +463,7 @@ h2 {
 }
 .education-card {
   padding: 30px;
-  text-align: center; /* Education looks better centered */
+  text-align: center;
 }
 .education-card h3 {
   font-size: 1.4rem;
@@ -491,7 +489,7 @@ h2 {
   gap: 25px;
   padding: 30px;
   align-items: flex-start;
-  text-align: left; /* Strict left alignment */
+  text-align: left;
 }
 .internship-logo img {
   width: 80px;
@@ -544,7 +542,7 @@ h2 {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  text-align: left; /* Proper alignment for legibility */
+  text-align: left;
 }
 .volunteering-info h3 {
   font-size: 1.3rem;
@@ -803,173 +801,7 @@ h2 {
   border-top: 1px solid var(--border-color-dark);
 }
 
-/* --- RESPONSIVE MEDIA QUERIES --- */
-@media (max-width: 992px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-  .hero-text {
-    text-align: center;
-  }
-  .hero-cta-buttons {
-    justify-content: center;
-  }
-  .hero-image-container {
-    order: -1;
-  }
-  .about-content-wrapper {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .about-text-side {
-    text-align: center; /* Centers H3 and Buttons */
-  }
-  .about-text-side p {
-    text-align: left; /* Keep paragraphs left-aligned for readability */
-    margin: 0 auto 15px auto;
-  }
-  .about-text-side .btn {
-    margin: 20px auto 0;
-  }
-  .services-row {
-    flex-direction: column;
-  }
-  .volunteering-grid {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 850px) {
-  .menu-trigger {
-    display: block;
-    z-index: 3001;
-    color: #ffffff;
-    font-size: 1.6rem;
-  }
-  .menu-trigger:hover {
-    color: var(--accent-color-dark);
-  }
-  .logo {
-    position: relative;
-    left: 0;
-    transform: none;
-    z-index: 3001;
-  }
-
-  .glassy-nav {
-    width: 92%;
-    padding: 12px 22px;
-    justify-content: space-between;
-  }
-
-  .nav-links-wrapper {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    height: 100vh;
-    width: 78%;
-    max-width: 320px;
-    background: rgba(5, 5, 5, 0.95);
-    backdrop-filter: blur(25px) saturate(180%);
-    border-right: 1px solid rgba(0, 255, 255, 0.2);
-    box-shadow: 15px 0 40px rgba(0, 0, 0, 0.9);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 22px;
-    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 3000;
-  }
-  .nav-links-wrapper.active {
-    left: 0;
-  }
-  .nav-links-wrapper .nav-btn {
-    font-size: 1.25rem;
-    font-weight: 600;
-    width: 80%;
-    padding: 14px 20px;
-    text-align: center;
-    border-radius: 16px;
-    color: #e0e0e0;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-  .nav-links-wrapper .nav-btn:hover,
-  .nav-links-wrapper .nav-btn:active {
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), transparent);
-    border-color: var(--accent-color-dark);
-    color: #ffffff;
-    transform: translateX(8px);
-  }
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.8rem;
-  }
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-  .service-cards-grid,
-  .projects-grid,
-  .internship-container,
-  .volunteering-grid {
-    grid-template-columns: 1fr;
-  }
-  .volunteering-item img {
-    height: 200px;
-  }
-  .certifications-section {
-    padding: 40px 0;
-  }
-  .marquee-wrapper {
-    gap: 20px;
-  }
-  .marquee-track img {
-    width: 200px;
-    height: 140px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2.2rem;
-  }
-  .hero-cta-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .btn {
-    width: 100%;
-  }
-  .hero-profile-image {
-    width: 250px;
-    height: 280px;
-  }
-  .quote-box {
-    margin: 0 auto 20px;
-  }
-  .internship-item {
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .internship-details ul {
-    text-align: left;
-  }
-  .volunteering-item img {
-    height: 180px;
-  }
-  .marquee-track img {
-    width: 150px;
-    height: 105px;
-  }
-}
-/* --- RESPONSIVE MEDIA QUERIES --- */
+/* --- RESPONSIVE MEDIA QUERIES (CONSOLIDATED & CLEANED) --- */
 @media (max-width: 992px) {
   .hero-content {
     flex-direction: column;
@@ -980,15 +812,24 @@ h2 {
   .hero-text {
     text-align: center;
     width: 100%;
-    min-width: 100%; /* Overrides desktop min-width to prevent horizontal scroll */
+    min-width: 100%;
+    order: 2;
   }
   .hero-image-container {
     width: 100%;
-    min-width: 100%; /* Overrides the 450px desktop width so it fits on phones */
-    /* Removed 'order: -1' so the text naturally appears FIRST, above the image */
+    min-width: 100%;
+    order: 1;
+    display: flex;
+    justify-content: center;
   }
   .hero-cta-buttons {
     justify-content: center;
+  }
+  #home h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-align: center;
   }
   .about-content-wrapper {
     flex-direction: column;
@@ -1078,17 +919,15 @@ h2 {
 @media (max-width: 768px) {
   h1 {
     font-size: 2.4rem;
-  } /* Reduced from 2.8rem to stop text overlapping */
+  }
   h2 {
     font-size: 2rem;
     margin-bottom: 30px;
   }
-  .service-cards-grid,
   .projects-grid,
   .internship-container,
   .volunteering-grid,
   .videos-grid {
-    /* Includes the fix for stacked videos */
     grid-template-columns: 1fr;
   }
   .volunteering-item img {
@@ -1110,7 +949,7 @@ h2 {
   h1 {
     font-size: 2rem;
     line-height: 1.3;
-  } /* Prevents massive text on phones */
+  }
   .hero-cta-buttons {
     flex-direction: column;
     gap: 15px;
@@ -1118,18 +957,15 @@ h2 {
   .btn {
     width: 100%;
   }
-
   .hero-profile-image {
     width: 100%;
-    max-width: 320px; /* Keeps the image large but restricts it to the phone screen */
+    max-width: 320px;
     height: auto;
   }
-
   .quote-box {
     margin: 0 auto 20px;
-    width: 100%; /* Prevents the quote box from spilling off-screen */
+    width: 100%;
   }
-
   .internship-item {
     text-align: center;
     flex-direction: column;
@@ -1146,33 +982,3 @@ h2 {
     height: 105px;
   }
 }
-@media (max-width: 992px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-
-  .hero-text {
-    text-align: center;
-    order: 2; /* Forces the text to render first (on top) */
-  }
-
-  .hero-cta-buttons {
-    justify-content: center;
-  }
-
-  .hero-image-container {
-    order: 1; /* Forces the image to render second (below the text) */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  #home h1 {
-    font-size: 2.5rem;
-    line-height: 1;
-    margin-bottom: 20px;
-    text-align: left; /* Ensures the heading doesn't overflow on smaller screens */
-  }
-}
-/* ... keep the rest of your 992px rules below ... */
