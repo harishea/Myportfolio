@@ -1,117 +1,85 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. MOBILE MENU LEFT-SWIPE LOGIC ---
-  const menuTrigger = document.querySelector(".menu-trigger");
-  const navMenu = document.querySelector(".nav-links-group.left-group");
-
-  if (menuTrigger && navMenu) {
-    menuTrigger.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-      const menuIcon = menuTrigger.querySelector("i");
-      if (menuIcon) {
-        // Toggles between Hamburger and Close icon
-        menuIcon.classList.toggle("fa-bars");
-        menuIcon.classList.toggle("fa-times");
-      }
-    });
-
-    // Close menu when a link is clicked
-    document.querySelectorAll(".nav-btn").forEach((btn) => {
-      btn.addEventListener("click", () => navMenu.classList.remove("active"));
-    });
-  }
-
-  // --- 2. PARTICLE NETWORK BACKGROUND EFFECT ---
+  // --- 1. SNOWFALL BACKGROUND EFFECT (OPTIMIZED) ---
+  // We can enable this on all devices because disabling 'links' removes 90% of the CPU calculations.
   if (document.getElementById("particles-canvas")) {
     tsParticles.load("particles-canvas", {
       particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#00d9ff" },
+        number: { value: 70, density: { enable: true, value_area: 800 } },
+        color: { value: ["#ffffff", "#00ffff"] }, // Pure white snow mixed with slight Aqua glow
         shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
+        opacity: { value: 0.6, random: true },
         size: { value: 3, random: true },
-        links: {
+        move: {
           enable: true,
-          distance: 150,
-          color: "#00e5ff", // Set to your brand cyan
-          opacity: 0.4,
-          width: 1,
+          speed: 1.2,
+          direction: "bottom", // Falls downwards
+          straight: false, // Allows natural drift
+          out_mode: "out",
         },
-        move: { enable: true, speed: 2, direction: "none", out_mode: "out" },
+        links: { enable: false }, // Disabling links completely changes this to a lightweight snowfall
       },
       interactivity: {
         events: {
-          onhover: { enable: true, mode: "grab" },
-          onclick: { enable: true, mode: "push" },
+          onhover: { enable: true, mode: "repulse" }, // Repulses snow gently away from the mouse
           resize: true,
         },
         modes: {
-          grab: { distance: 140, line_opacity: 1 },
-          push: { particles_nb: 4 },
+          repulse: { distance: 100, duration: 0.4 },
         },
       },
       retina_detect: true,
     });
   }
 
-  // --- 3. AOS (Animate On Scroll) ---
-  AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100,
-  });
-});
+  // --- 2. CERTIFICATE IMAGE MODAL (LIGHTBOX) ---
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
+  const closeModalBtn = document.querySelector(".close-modal");
+  const certImages = document.querySelectorAll(".marquee-track img");
 
-// --- 4. CERTIFICATE IMAGE MODAL (LIGHTBOX) ---
-const modal = document.getElementById("image-modal");
-const modalImg = document.getElementById("modal-img");
-const closeModalBtn = document.querySelector(".close-modal");
-const certImages = document.querySelectorAll(".marquee-track img");
-
-if (modal && modalImg && certImages.length > 0) {
-  // Open modal on image click
-  certImages.forEach((img) => {
-    img.addEventListener("click", function () {
-      modal.style.display = "flex";
-      modalImg.src = this.src; // Take the src of the clicked image
+  if (modal && modalImg && certImages.length > 0) {
+    certImages.forEach((img) => {
+      img.addEventListener("click", function () {
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+      });
     });
-  });
 
-  // Close modal when clicking the 'X' button
-  closeModalBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  // Close modal when clicking anywhere outside the image
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
+    closeModalBtn.addEventListener("click", () => {
       modal.style.display = "none";
-    }
-  });
-}
-// --- 1. MOBILE MENU LEFT-SWIPE LOGIC ---
-const menuTrigger = document.querySelector(".menu-trigger");
-const navMenu = document.querySelector(".nav-links-wrapper");
+    });
 
-if (menuTrigger && navMenu) {
-  // Toggle menu open/close
-  menuTrigger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    const menuIcon = menuTrigger.querySelector("i");
-    if (menuIcon) {
-      menuIcon.classList.toggle("fa-bars");
-      menuIcon.classList.toggle("fa-times");
-    }
-  });
-
-  // Close menu when any link is clicked & reset icon
-  document.querySelectorAll(".nav-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      const menuIcon = menuTrigger.querySelector("i");
-      if (menuIcon) {
-        menuIcon.classList.add("fa-bars");
-        menuIcon.classList.remove("fa-times");
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
       }
     });
-  });
-}
+  }
+
+  // --- 3. MOBILE MENU (Single Clean Listener) ---
+  const menuTrigger = document.querySelector(".menu-trigger");
+  const navMenu = document.querySelector(".nav-links-wrapper");
+
+  if (menuTrigger && navMenu) {
+    menuTrigger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      const menuIcon = menuTrigger.querySelector("i");
+      if (menuIcon) {
+        menuIcon.classList.toggle("fa-bars");
+        menuIcon.classList.toggle("fa-times");
+      }
+    });
+
+    // Close menu when any link is clicked & reset icon
+    document.querySelectorAll(".nav-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        const menuIcon = menuTrigger.querySelector("i");
+        if (menuIcon) {
+          menuIcon.classList.add("fa-bars");
+          menuIcon.classList.remove("fa-times");
+        }
+      });
+    });
+  }
+});
