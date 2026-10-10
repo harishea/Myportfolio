@@ -1,521 +1,1044 @@
-<!DOCTYPE html>
-<html lang="en">
+/* --- CSS VARIABLES (PURE BLACK & AQUA THEME) --- */
+:root {
+  /* Enforced 100% Black Theme */
+  --bg-color-dark: #000000; /* Pure black background */
+  --surface-color-dark: #0a0a0a; /* Extremely dark grey for cards */
+  --glass-bg-dark: rgba(10, 10, 10, 0.7); /* Darker glass effect */
+  --glass-border-dark: rgba(0, 255, 255, 0.15); /* Slight aqua border tint */
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  /* Text and Accents */
+  --text-color-dark: #e0e0e0;
+  --heading-color-dark: #ffffff;
 
-  <!-- SEO & Open Graph Meta Tags -->
-  <title>Harish E A |#1 Leading Product Developer & Digital Marketer</title>
-  <meta name="description"
-    content="Discover Harish E A's innovative portfolio featuring expert digital marketing, creative UI/UX design, responsive web development, and impactful digital solutions.">
-  <meta name="keywords"
-    content="Harish E A, Product Developer, Digital Marketing Specialist, UI/UX Designer, Frontend Developer, Web Development, Portfolio,Digital Marketer">
-  <meta name="author" content="Harish E A">
-  <meta property="og:title" content="Harish E A |#1 Leading Product Developer & Digital Marketer">
-  <meta property="og:description"
-    content="Discover Harish E A's innovative portfolio featuring expert digital marketing, creative UI/UX design, responsive web development, and impactful digital solutions.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://itshk.vercel.app/">
-  <meta property="og:image" content="https://itshk.vercel.app/images/home p1.webp">
+  /* Primary Aqua Accents */
+  --accent-color-dark: #00ffff; /* Glowing Aqua */
+  --accent-gradient-dark: linear-gradient(135deg, #00ffff, #008b8b);
 
-  <link rel="canonical" href="https://itshk.vercel.app/" />
-  <link rel="shortcut icon" href="images/Fav icon.png" type="image/x-icon">
+  --soft-gradient-bg-dark: linear-gradient(135deg, #000000 0%, #080808 100%);
+  --border-color-dark: #222222;
+  --shadow-dark: rgba(0, 255, 255, 0.05);
 
-  <!-- Preload Hero Image conditionally for LCP Optimization -->
-  <link rel="preload" as="image" href="images/Home p1-mobile.webp" media="(max-width: 768px)" fetchpriority="high">
-  <link rel="preload" as="image" href="images/Home p1.webp" media="(min-width: 769px)" fetchpriority="high">
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --border-radius-sm: 8px;
+  --border-radius-md: 15px;
+  --border-radius-lg: 25px;
+}
 
-  <!-- JSON-LD for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Harish E A",
-    "alternateName": ["Harish Kumar", "ItsHK", "Harish E A Portfolio"],
-    "url": "https://itshk.vercel.app/",
-    "jobTitle": "Product Designer & Web Developer & Digital Marketer",
-    "sameAs": [
-      "https://github.com/harishea",
-      "https://www.linkedin.com/in/harishea/",
-      "https://www.behance.net/harishea",
-      "https://www.instagram.com/harishkumar_497/"
-    ]
+/* --- THEME APPLICATION --- */
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+  padding-top: 0;
+}
+
+/* --- NEW BACKGROUND GRID & GRADIENT GLOW --- */
+.grid-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 120px 120px; /* Much larger grid boxes */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.grid-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 0% 50%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 100% 50%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    );
+}
+
+/* --- GENERAL RESET & UTILITIES --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  padding: 50px 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--heading-color-dark);
+}
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  padding: 12px 25px;
+  border-radius: var(--border-radius-lg);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.primary-btn {
+  background: var(--accent-gradient-dark);
+  color: #000000;
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+}
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+}
+.secondary-btn {
+  background-color: transparent;
+  color: var(--text-color-dark);
+  border: 1px solid var(--border-color-dark);
+}
+.secondary-btn:hover {
+  background-color: var(--accent-color-dark);
+  color: var(--bg-color-dark);
+  border-color: var(--accent-color-dark);
+}
+
+/* --- HEADER & NAVIGATION --- */
+.header {
+  position: fixed;
+  top: 25px;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
+
+.glassy-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  padding: 10px 25px;
+  border-radius: 50px;
+  width: 90%;
+  max-width: 1100px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.nav-header {
+  width: 0; /* Prevents disruption of flex alignment on desktop */
+}
+
+.nav-links-wrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.nav-links-wrapper .nav-btn:nth-child(3) {
+  margin-right: auto;
+}
+.nav-links-wrapper .nav-btn:nth-child(4) {
+  margin-left: auto;
+}
+
+.nav-btn {
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.nav-btn:hover {
+  background: rgba(0, 255, 255, 0.1);
+  color: var(--accent-color-dark);
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  position: absolute;
+  left: 50%;
+  top: 50%; /* Adjusted for absolute vertical centering */
+  transform: translate(-50%, -50%); /* Adjusted for perfect center offset */
+  z-index: 10;
+}
+.logo-accent {
+  color: var(--accent-color-dark);
+}
+.menu-trigger {
+  display: none;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* --- HERO SECTION --- */
+#home {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 5% 40px;
+  min-height: auto;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+#home h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.highlight-name {
+  background: var(--accent-gradient-dark);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+.quote-box {
+  background-color: var(--glass-bg-dark);
+  border-color: var(--border-color-dark);
+  border-left: 5px solid var(--accent-color-dark);
+  box-shadow: 0 4px 10px var(--shadow-dark);
+  padding: 20px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 30px;
+  max-width: 400px;
+  backdrop-filter: blur(8px);
+}
+.quote-box i {
+  color: var(--accent-color-dark);
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+.quote-box p {
+  display: inline;
+  font-style: italic;
+  line-height: 1.6;
+}
+.hero-cta-buttons {
+  display: flex;
+  gap: 20px;
+}
+.hero-image-container {
+  flex: 1;
+  min-width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-profile-image {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  filter: drop-shadow(0 15px 35px rgba(0, 255, 255, 0.15));
+  animation: gentle-shake 3s ease-in-out infinite;
+}
+
+@keyframes gentle-shake {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
   }
-  </script>
+  25% {
+    transform: translate(2px, -2px) rotate(-1deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate(-2px, 2px) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+/* --- CARD & ITEM STYLES --- */
+.skill-item,
+.project-item,
+.education-card,
+.internship-item,
+.volunteering-item {
+  background-color: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-md);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
 
-  <!-- Icons (Deferred) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print"
-    onload="this.media='all'">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print"
-    onload="this.media='all'">
+.skill-item:hover,
+.project-item:hover,
+.education-card:hover,
+.internship-item:hover,
+.volunteering-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.1);
+}
 
-  <link rel="stylesheet" href="style.css">
-</head>
+.services-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+  padding: 20px;
+}
+.glass-service-card {
+  flex: 1;
+  background: var(--glass-bg-dark);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border-dark);
+  border-radius: 20px;
+  padding: 40px 20px;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+.glass-service-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-color-dark);
+}
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--accent-color-dark);
+  margin-bottom: 15px;
+}
 
-<body>
-  <!-- Background Grid & Glow Elements -->
-  <div class="grid-glow"></div>
-  <div class="grid-bg"></div>
+.about-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin-top: 10px;
+}
+.about-image-side {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+.about-profile-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  animation: gentle-shake 2s ease-in-out infinite;
+}
+.about-text-side {
+  flex: 2;
+  min-width: 300px;
+  text-align: left;
+}
+.about-text-side h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.about-text-side p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+  max-width: 700px;
+  color: #c4c4c4;
+}
 
-  <header class="header">
-    <nav class="navbar-pill glassy-nav">
-      <!-- Grouped Logo and Hamburger for mobile dropdown logic -->
-      <div class="nav-header">
-        <a href="#home" class="logo" aria-label="Home">Its<span class="logo-accent">HK</span></a>
-        <button class="menu-trigger" aria-label="Open mobile navigation menu"><i class="fas fa-bars"></i></button>
-      </div>
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+}
+.skill-item {
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 150px;
+}
+.skill-item i {
+  font-size: 3rem;
+  color: var(--accent-color-dark);
+}
+.skill-item span {
+  font-weight: 500;
+}
 
-      <div class="nav-links-wrapper">
-        <a href="#home" class="nav-btn">Home</a>
-        <a href="#about" class="nav-btn">About</a>
-        <a href="#services" class="nav-btn">Service</a>
-        <a href="#projects" class="nav-btn">Projects</a>
-        <a href="#freelance" class="nav-btn">Freelance</a>
-        <a href="#contact" class="nav-btn">Contact</a>
-      </div>
-    </nav>
-  </header>
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+.project-item {
+  overflow: hidden;
+}
+.project-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border-color-dark);
+}
+.project-info {
+  padding: 20px;
+  text-align: left;
+}
+.project-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+.project-links {
+  display: flex;
+  gap: 15px;
+}
+.project-links a {
+  color: var(--text-color-dark);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+}
+.project-links a:hover {
+  color: var(--accent-color-dark);
+}
 
-  <main>
-    <section id="home" class="hero-section">
-      <div class="hero-bg-gradient"></div>
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1>I'm <span class="highlight-name">Harish E A</span>, <br>Digital Marketing Specialist & Product Developer
-          </h1>
-          <div class="quote-box">
-            <i class="fas fa-quote-left"></i>
-            <p>"Harish’s exceptional Digital Marketing and Product Development expertise ensure seamless digital
-              experiences. Highly Recommended."</p>
-          </div>
-          <div class="hero-cta-buttons">
-            <a href="#projects" class="btn primary-btn">Portfolio <i class="fas fa-long-arrow-alt-right"></i></a>
-            <a href="#contact" class="btn secondary-btn">Hire me</a>
-          </div>
-        </div>
-        <div class="hero-image-container">
-          <img src="images/Home p1.webp" srcset="images/Home p1-mobile.webp 400w, images/Home p1.webp 800w"
-            sizes="(max-width: 768px) 400px, 800px" alt="Portrait of Harish E A" class="hero-profile-image"
-            fetchpriority="high" width="600" height="500">
-        </div>
-      </div>
-    </section>
+.education-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 900px;
+}
+.education-card {
+  padding: 30px;
+  text-align: center;
+}
+.education-card h3 {
+  font-size: 1.4rem;
+  color: var(--accent-color-dark);
+  margin-bottom: 10px;
+}
+.education-card .institution {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
 
-    <section id="about" class="about-section">
-      <h2>About Me</h2>
-      <div class="about-content-wrapper">
-        <div class="about-image-side">
-          <img src="images/pic 2.webp" alt="Harish E A" class="about-profile-image" loading="lazy" decoding="async"
-            width="400" height="400">
-        </div>
-        <div class="about-text-side">
-          <h3>I build engaging digital experiences.</h3>
-          <p>As a passionate Product Developer and Digital Marketing Specialist, I combine creativity and technology
-            to deliver impactful digital solutions. My expertise includes UI/UX Design, Frontend Development, Web
-            Development, Graphic Design, and SEO, creating engaging user experiences, responsive websites, and
-            effective digital marketing strategies that drive brand growth.</p>
-          <p>I focus on creating intuitive, visually appealing, and high-performing digital products that solve real
-            user problems and deliver business value.</p>
-          <a href="images/Harish_E_A_Resume.pdf" download target="_blank" class="btn primary-btn">Download Resume <i
-              class="fas fa-download"></i></a>
-        </div>
-      </div>
-    </section>
+.internship-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+.internship-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 30px;
+  align-items: flex-start;
+  text-align: left;
+}
+.internship-logo img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--surface-color-dark);
+  padding: 10px;
+  object-fit: contain;
+  border: 1px solid var(--glass-border-dark);
+}
+.internship-details {
+  flex-grow: 1;
+}
+.internship-details h3 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  color: var(--accent-color-dark);
+}
+.internship-details .company {
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+.internship-details ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+.internship-details ul li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: #c4c4c4;
+}
 
-    <section id="education" class="education-section">
-      <h2>Education</h2>
-      <div class="education-container">
-        <div class="education-card">
-          <h3>Bachelor of Engineering - CSE with Honours</h3>
-          <p class="institution">GRT Institute of Engineering and Technology, Tiruttani</p>
-          <p class="details">2022 - 2026 | 8.88 CGPA</p>
-        </div>
-        <div class="education-card">
-          <h3>Higher Secondary Certificate (HSC)</h3>
-          <p class="institution">Vaariar Matric Hr Sec School</p>
-          <p class="details">2020 - 2022 | 72%</p>
-        </div>
-      </div>
-    </section>
+.volunteering-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.volunteering-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color-dark);
+}
+.volunteering-info {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+.volunteering-info h3 {
+  font-size: 1.3rem;
+  color: var(--accent-color-dark);
+  margin-bottom: 5px;
+}
+.volunteering-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--heading-color-dark);
+  margin-bottom: 15px;
+}
+.volunteering-info p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #c4c4c4;
+}
 
-    <section id="services" class="services-section">
-      <h2 class="section-title">Professional Services</h2>
-      <div class="services-row">
-        <div class="glass-service-card">
-          <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
-          <h3>Graphic Design</h3>
-          <p>Creating impactful visual experiences through creative design and aesthetic strategy</p>
-        </div>
-        <div class="glass-service-card">
-          <div class="service-icon"><i class="fas fa-terminal"></i></div>
-          <h3>Web Development</h3>
-          <p>Building responsive, modern web applications with clean, efficient code</p>
-        </div>
-        <div class="glass-service-card">
-          <div class="service-icon"><i class="fas fa-palette"></i></div>
-          <h3>Branding</h3>
-          <p>Building strategic brand identities that command attention and drive market impact</p>
-        </div>
-        <div class="glass-service-card">
-          <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-          <h3>Digital Marketing</h3>
-          <p>Accelerating brand growth through targeted digital strategies</p>
-        </div>
-      </div>
-    </section>
+/* --- CERTIFICATIONS MARQUEE SECTION --- */
+.certifications-section {
+  width: 100%;
+  overflow: hidden;
+  padding: 60px 0;
+}
+.marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--bg-color-dark) 0%,
+    transparent 100%
+  );
+}
+.marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--bg-color-dark) 0%,
+    transparent 100%
+  );
+}
+.marquee-row {
+  width: 100%;
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+.marquee-track.row-1 {
+  animation: scroll-left-to-right 35s linear infinite;
+}
+.marquee-track.row-2 {
+  animation: scroll-right-to-left 35s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+.marquee-track img {
+  width: 340px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
+  padding: 5px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+.marquee-track img:hover {
+  transform: scale(1.05);
+  border-color: var(--accent-color-dark);
+}
 
-    <section id="skills" class="skills-section">
-      <h2>My Toolkit</h2>
-      <div class="skills-grid">
-        <div class="skill-item"> <i class="devicon-google-plain"></i><span>SEO</span></div>
-        <div class="skill-item"> <i class="fas fa-film"></i><span>CapCut</span></div>
-        <div class="skill-item"> <i class="fas fa-link"></i><span>Ahrefs</span></div>
-        <div class="skill-item"> <i class="fas fa-chart-line"></i><span>Google Analytics</span></div>
-        <div class="skill-item"> <i class="fas fa-search-dollar"></i><span>Ubersuggest</span></div>
-        <div class="skill-item"> <i class="fas fa-ad"></i><span>Google Ads</span></div>
+@keyframes scroll-left-to-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes scroll-right-to-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
-        <div class="skill-item"> <i class="devicon-figma-plain"></i><span>Figma</span></div>
-        <div class="skill-item"> <i class="devicon-canva-original"></i><span>Canva</span></div>
-        <div class="skill-item"> <i class="devicon-html5-plain"></i><span>HTML</span></div>
-        <div class="skill-item"> <i class="devicon-css3-plain"></i><span>CSS</span></div>
-        <div class="skill-item"> <i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
-        <div class="skill-item"> <i class="devicon-git-plain"></i><span>Git</span></div>
-        <div class="skill-item"> <i class="devicon-github-original"></i><span>GitHub</span></div>
-        <div class="skill-item"> <i class="devicon-photoshop-plain"></i><span>Adobe</span></div>
-        <div class="skill-item"> <i class="devicon-bootstrap-plain"></i><span>Bootstrap</span></div>
-        <div class="skill-item"> <i class="fas fa-brain"></i><span>Gen AI</span></div>
-        <div class="skill-item"> <i class="devicon-python-plain"></i><span>Python</span></div>
-        <div class="skill-item"> <i class="devicon-react-original"></i><span>React</span></div>
+/* --- LIGHTBOX MODAL --- */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 4000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 10px 40px rgba(0, 255, 255, 0.1);
+  animation: zoomIn 0.3s ease-out forwards;
+}
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 4001;
+}
+.close-modal:hover {
+  color: var(--accent-color-dark);
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
-      </div>
-    </section>
+/* --- VIDEOS --- */
+.videos-section {
+  padding: 80px 5%;
+  text-align: center;
+}
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.video-item {
+  border-radius: 15px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
+}
+.video-item:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-color-dark);
+}
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.video-item h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 10px 0 5px;
+  color: #fff;
+}
 
-    <section id="internships" class="internships-section">
-      <h2>Internship Experience</h2>
-      <div class="internship-container">
-        <div class="internship-item">
-          <div class="internship-logo">
-            <img src="images/Company Logos/WOrely ventures.webp" alt="Worley Ventures Logo" loading="lazy"
-              decoding="async" width="80" height="80">
-          </div>
-          <div class="internship-details">
-            <h3>Front-End Developer Intern</h3>
-            <p class="company">Worley Ventures | On-site</p>
-            <p class="duration">Aug 2024 - Oct 2024</p>
-            <ul>
-              <li>Developed responsive UI components for client websites using React and CSS3.</li>
-              <li>Collaborated with the design team to translate Figma mockups into pixel-perfect web pages.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="internship-item">
-          <div class="internship-logo">
-            <img src="images/Company Logos/Techinta Logo BLUE.webp" alt="Techinta Logo" loading="lazy" decoding="async"
-              width="80" height="80">
-          </div>
-          <div class="internship-details">
-            <h3>UI/UX Design Intern</h3>
-            <p class="company">Techinta | Remote</p>
-            <p class="duration">June 2025 - July 2025</p>
-            <ul>
-              <li>Created wireframes, user flows, and high-fidelity prototypes for a new mobile application.</li>
-              <li>Conducted user research sessions and synthesized feedback to inform design iterations.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="internship-item">
-          <div class="internship-logo">
-            <img src="images/Company Logos/Infotact.webp" alt="Infotact Logo" loading="lazy" decoding="async" width="80"
-              height="80">
-          </div>
-          <div class="internship-details">
-            <h3>UI UX Design Intern</h3>
-            <p class="company">Infotact | Remote</p>
-            <p class="duration">May 2025 - July 2025</p>
-            <ul>
-              <li>Created user personas and journey maps to understand user needs and pain points.</li>
-              <li>Designed wireframes and interactive prototypes using Figma to visualize and test user flows.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="internship-item">
-          <div class="internship-logo">
-            <img src="images/Company Logos/nuada.webp" alt="Nuada Logo" loading="lazy" decoding="async" width="80"
-              height="80">
-          </div>
-          <div class="internship-details">
-            <h3>Graphic Design Intern</h3>
-            <p class="company">Nuada | Remote</p>
-            <p class="duration">Sep 2024 - Dec 2024</p>
-            <ul>
-              <li>Collaborated with team members to translate requirements into effective design solutions aligned with
-                brand guidelines.</li>
-              <li>Created and optimized marketing materials for digital campaigns.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+/* --- CONTACT --- */
+.contact-form {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px 20px;
+  outline: none;
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: var(--surface-color-dark);
+  border: 1px solid var(--border-color-dark);
+  color: var(--text-color-dark);
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #888888;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1px solid var(--accent-color-dark);
+  box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.social-links a {
+  font-size: 2.5rem;
+  color: var(--text-color-dark);
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+.social-links a:hover {
+  color: var(--accent-color-dark);
+  transform: translateY(-3px);
+}
+.footer {
+  padding: 30px 5%;
+  text-align: center;
+  color: #777777;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color-dark);
+}
 
-    <section id="projects" class="projects-section">
-      <h2>My Projects</h2>
-      <div class="projects-grid">
-        <div class="project-item">
-          <img src="images/UI UX Case study.webp" alt="Travel App UI UX Case Study" loading="lazy" decoding="async"
-            width="320" height="250">
-          <div class="project-info">
-            <h3>Travel App UI/UX Case Study</h3>
-            <div class="project-links">
-              <a href="https://www.figma.com/proto/..." target="_blank" aria-label="View on Figma"><i
-                  class="fab fa-figma"></i> Figma</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-item">
-          <img src="images/TrageX project.webp" alt="TradeX Trading Website" loading="lazy" decoding="async" width="320"
-            height="250">
-          <div class="project-info">
-            <h3>Trading Website</h3>
-            <div class="project-links">
-              <a href="https://github.com/harishea/TradeX.git" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-              <a href="https://harishea.github.io/TradeX/" target="_blank"><i class="fas fa-external-link-alt"></i>
-                Live</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-item">
-          <img src="images/Nuada Work.webp" alt="Nuada Brand Identity Design" loading="lazy" decoding="async"
-            width="320" height="250">
-          <div class="project-info">
-            <h3>Brand Identity Design</h3>
-            <div class="project-links">
-              <a href="https://www.behance.net/gallery/225175077/Nuada-Freelance-Works" target="_blank"><i
-                  class="fab fa-behance"></i> Behance</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-item">
-          <img src="images/Instagram WOrk.webp" alt="Instagram App Clone" loading="lazy" decoding="async" width="320"
-            height="250">
-          <div class="project-info">
-            <h3>Instagram App UI/UX</h3>
-            <div class="project-links">
-              <a href="https://www.figma.com/design/..." target="_blank"><i class="fab fa-figma"></i> Figma</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-item">
-          <img src="images/Portfolio Display Posters.webp" alt="Vazhikaati AI App" loading="lazy" decoding="async"
-            width="320" height="250">
-          <div class="project-info">
-            <h3>Vazhikaati AI</h3>
-            <div class="project-links">
-              <a href="https://github.com/harishea/Vazhikaati_AI.git" target="_blank"><i class="fab fa-github"></i>
-                GitHub</a>
-              <a href="https://vazhikaati-ai-1.onrender.com/" target="_blank"><i class="fas fa-external-link-alt"></i>
-                Live</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-item">
-          <img src="images/calcida AI.webp" alt="Calcida AI GPA Calculator" loading="lazy" decoding="async" width="320"
-            height="250">
-          <div class="project-info">
-            <h3>Calcida AI - GPA calculator</h3>
-            <div class="project-links">
-              <a href="https://github.com/harishea/Calcida.ai.git" target="_blank"><i class="fab fa-github"></i>
-                GitHub</a>
-              <a href="https://calcida-ai-1.onrender.com/" target="_blank"><i class="fas fa-external-link-alt"></i>
-                Live</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 992px) {
+  #home {
+    padding: 100px 5% 40px;
+  }
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    margin-top: 0;
+  }
+  .hero-text {
+    text-align: center;
+    width: 100%;
+    min-width: 100%;
+    order: 2;
+  }
+  .hero-image-container {
+    width: 100%;
+    min-width: 100%;
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-cta-buttons {
+    justify-content: center;
+  }
+  #home h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .about-content-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .about-text-side {
+    text-align: center;
+  }
+  .about-text-side p {
+    text-align: left;
+    margin: 0 auto 15px auto;
+  }
+  .about-text-side .btn {
+    margin: 20px auto 0;
+  }
+  .services-row {
+    flex-direction: column;
+  }
+  .volunteering-grid {
+    gap: 20px;
+  }
+}
 
-    <section id="freelance" class="freelance-section">
-      <h2>Freelance Works</h2>
-      <p class="contact-intro">Here are some of the projects I've delivered for clients worldwide.</p>
-      <div class="projects-grid">
-        <div class="project-item">
-          <img src="images/Posters work.webp" alt="Poster Designing Work" loading="lazy" decoding="async" width="320"
-            height="250">
-          <div class="project-info">
-            <h3>Poster Designing Work</h3>
-            <div class="project-links">
-              <a href="https://drive.google.com/drive/folders/1AcealTRckvWwEOb_A5V_gld9JdbtCJ37?usp=sharing"
-                target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-item">
-          <img src="images/Video cutzz.webp" alt="Video Cutzz Project" loading="lazy" decoding="async" width="320"
-            height="250">
-          <div class="project-info">
-            <h3>Video Cutzz</h3>
-            <div class="project-links">
-              <a href="https://drive.google.com/drive/folders/1y08-enYMHrjakxr2GPiEp2kwTN6sQ8pg?usp=drive_link"
-                target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+@media (max-width: 850px) {
+  .header {
+    top: 15px;
+  }
+  .menu-trigger {
+    display: block;
+    color: #ffffff;
+    font-size: 1.6rem;
+  }
+  .menu-trigger:hover {
+    color: var(--accent-color-dark);
+  }
 
-    <section id="volunteering" class="volunteering-section">
-      <h2>Volunteering Works</h2>
-      <p class="contact-intro">Community building and leadership experiences that shape my professional journey.</p>
-      <div class="volunteering-grid">
-        <div class="volunteering-item">
-          <img src="images/Volunteering/v1.webp" alt="GDG Design Team Lead" loading="lazy" decoding="async" width="600"
-            height="250">
-          <div class="volunteering-info">
-            <h3>Google Developer Groups on Campus GRT IET</h3>
-            <h4>Design Team Lead</h4>
-            <p>Gained extensive experience in team leadership and honed my public speaking skills by guiding the design
-              team and organizing collaborative sessions.</p>
-          </div>
-        </div>
-        <div class="volunteering-item">
-          <img src="images/Volunteering/v2.webp" alt="Texpo'24 Coordinator" loading="lazy" decoding="async" width="600"
-            height="250">
-          <div class="volunteering-info">
-            <h3>Texpo'24 - Dept. of Computer Science</h3>
-            <h4>Student Overall Coordinator</h4>
-            <p>Successfully managed and coordinated with over 300 participants from various colleges to organize and
-              execute this mega technical event.</p>
-          </div>
-        </div>
-        <div class="volunteering-item">
-          <img src="images/Volunteering/v3.webp" alt="Club Lead" loading="lazy" decoding="async" width="600"
-            height="250">
-          <div class="volunteering-info">
-            <h3>New Era 3.0 & Bug Squashers 3.0</h3>
-            <h4>Club Lead</h4>
-            <p>Mentored and trained over 300+ students in design principles, practical tools, and creative
-              problem-solving to build their foundational skills.</p>
-          </div>
-        </div>
-        <div class="volunteering-item">
-          <img src="images/Volunteering/v4.webp" alt="IIC Coordinator" loading="lazy" decoding="async" width="600"
-            height="250">
-          <div class="volunteering-info">
-            <h3>Institute of Innovation Council</h3>
-            <h4>Student Coordinator</h4>
-            <p>Took the lead in organizing and facilitating 5+ mega events, promoting a culture of innovation,
-              networking, and collaboration among students.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  /* Mobile Dropdown Setup */
+  .glassy-nav {
+    flex-direction: column;
+    width: 92%;
+    padding: 15px 20px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+  }
 
-    <section id="certifications" class="certifications-section">
-      <h2>Certifications</h2>
-      <p class="contact-intro">Continuous learning and upskilling to stay ahead in the tech landscape.</p>
-      <div class="marquee-wrapper">
-        <div class="marquee-row">
-          <div class="marquee-track row-1">
-            <img src="images/Certifications/c1.webp" alt="Certification 1" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c2.webp" alt="Certification 2" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c3.webp" alt="Certification 3" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c4.webp" alt="Certification 4" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c5.webp" alt="Certification 5" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c6.webp" alt="Certification 6" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c1.webp" alt="Certification 1 Copy" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c2.webp" alt="Certification 2 Copy" loading="lazy" width="340" height="240">
-          </div>
-        </div>
-        <div class="marquee-row">
-          <div class="marquee-track row-2">
-            <img src="images/Certifications/c7.webp" alt="Certification 7" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c8.webp" alt="Certification 8" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c9.webp" alt="Certification 9" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c10.webp" alt="Certification 10" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c11.webp" alt="Certification 11" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c12.webp" alt="Certification 12" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c7.webp" alt="Certification 7 Copy" loading="lazy" width="340" height="240">
-            <img src="images/Certifications/c8.webp" alt="Certification 8 Copy" loading="lazy" width="340" height="240">
-          </div>
-        </div>
-      </div>
-    </section>
+  .nav-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    <div id="image-modal" class="image-modal">
-      <span class="close-modal">&times;</span>
-      <img class="modal-content" id="modal-img" alt="Enlarged Certificate" loading="lazy">
-    </div>
+  .logo {
+    position: relative;
+    left: 0;
+    top: 0; /* Resetting top for mobile flow */
+    transform: none; /* Removing absolute translation */
+  }
 
-    <section id="videos" class="videos-section">
-      <h2>Featured Videos</h2>
-      <p class="contact-intro">A showcase of my creative cinematography, including my shortfilm and album song.</p>
-      <div class="videos-grid">
-        <div class="video-item">
-          <div class="video-wrapper">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/9q1OKT7B44k?si=XRzqk8SaGlUt-nHz"
-              title="The Pain Shortfilm" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
-          <h3>"THE PAIN" Short Film</h3>
-        </div>
-        <div class="video-item">
-          <div class="video-wrapper">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/jvWNcGTQ-RQ?si=jSyxZUFIPB3mxtUv"
-              title="The PAIN of PAIN Album Song" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
-          <h3>"The PAIN of PAIN" Album Song</h3>
-        </div>
-        <div class="video-item">
-          <div class="video-wrapper">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/d_lRGj8XNU0?si=E8rF4JtbIlsop819"
-              title="Mr Love Album Song" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
-          <h3>"Mr Love" Album Song</h3>
-        </div>
-      </div>
-    </section>
+  .nav-links-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 0; /* Hidden by default */
+    opacity: 0;
+    overflow: hidden;
+    gap: 10px;
+    transition:
+      max-height 0.4s ease,
+      opacity 0.4s ease,
+      margin-top 0.4s ease;
+  }
 
-    <section id="contact" class="contact-section">
-      <h2>Let's Connect!</h2>
-      <p class="contact-intro">Have a project in mind or just want to chat? Fill out the form below or connect with me
-        on social media.</p>
-      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="f0736541-f940-4530-8c9d-ea85a8118a23" />
-        <input type="hidden" name="subject" value="New Submission from Portfolio Website">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="6" cols="90" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn primary-btn" style="border-radius: 10px;">Send Message <i
-            class="fas fa-paper-plane"></i></button>
-      </form>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/harishea/" target="_blank" aria-label="LinkedIn Profile"><i
-            class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/harishea" target="_blank" aria-label="GitHub Profile"><i
-            class="fab fa-github"></i></a>
-        <a href="https://www.instagram.com/harishkumar_497/" target="_blank" aria-label="Instagram Profile"><i
-            class="fab fa-instagram"></i></a>
-        <a href="https://www.behance.net/harishea" target="_blank" aria-label="Behance Profile"><i
-            class="fab fa-behance"></i></a>
-      </div>
-    </section>
-  </main>
+  /* Active dropdown state toggled by script.js */
+  .nav-links-wrapper.active {
+    max-height: 400px;
+    opacity: 1;
+    margin-top: 20px; /* Separates links from the header */
+  }
 
-  <footer class="footer">
-    <p>&copy; 2026 Harish E A. All rights reserved.</p>
-  </footer>
+  .nav-links-wrapper .nav-btn {
+    width: 100%;
+    text-align: center;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+  .nav-links-wrapper .nav-btn:hover {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--accent-color-dark);
+  }
+}
 
-  <script src="script.js" defer></script>
-</body>
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  .projects-grid,
+  .internship-container,
+  .volunteering-grid,
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+  .volunteering-item img {
+    height: 200px;
+  }
+  .certifications-section {
+    padding: 40px 0;
+  }
+  .marquee-wrapper {
+    gap: 20px;
+  }
+  .marquee-track img {
+    width: 200px;
+    height: 140px;
+  }
+}
 
-</html>
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+  .hero-cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .btn {
+    width: 100%;
+  }
+  .hero-profile-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+  .quote-box {
+    margin: 0 auto 20px;
+    width: 100%;
+  }
+  .internship-item {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .internship-details ul {
+    text-align: left;
+  }
+  .volunteering-item img {
+    height: 180px;
+  }
+  .marquee-track img {
+    width: 150px;
+    height: 105px;
+  }
+}
