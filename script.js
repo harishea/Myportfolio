@@ -1,37 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. SNOWFALL BACKGROUND EFFECT (OPTIMIZED) ---
-  // Conditionally load only on desktop screens to prevent main thread blocking on mobile
-  if (document.getElementById("particles-canvas") && window.innerWidth > 768) {
-    tsParticles.load("particles-canvas", {
-      particles: {
-        number: { value: 70, density: { enable: true, value_area: 800 } },
-        color: { value: ["#ffffff", "#00ffff"] }, // Pure white snow mixed with slight Aqua glow
-        shape: { type: "circle" },
-        opacity: { value: 0.6, random: true },
-        size: { value: 3, random: true },
-        move: {
-          enable: true,
-          speed: 1.2,
-          direction: "bottom", // Falls downwards
-          straight: false, // Allows natural drift
-          out_mode: "out",
-        },
-        links: { enable: false }, // Disabling links completely changes this to a lightweight snowfall
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" }, // Repulses snow gently away from the mouse
-          resize: true,
-        },
-        modes: {
-          repulse: { distance: 100, duration: 0.4 },
-        },
-      },
-      retina_detect: true,
-    });
-  }
-
-  // --- 2. CERTIFICATE IMAGE MODAL (LIGHTBOX) ---
+  // --- 1. CERTIFICATE IMAGE MODAL (LIGHTBOX) ---
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-img");
   const closeModalBtn = document.querySelector(".close-modal");
@@ -56,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 3. MOBILE MENU (Single Clean Listener) ---
+  // --- 2. MOBILE MENU (DROPDOWN EXPAND) ---
   const menuTrigger = document.querySelector(".menu-trigger");
   const navMenu = document.querySelector(".nav-links-wrapper");
 
@@ -81,5 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
+  }
+});
+
+// As a backup, strictly block drag and drop for images
+document.addEventListener("dragstart", (e) => {
+  if (e.target.tagName === "IMG") {
+    e.preventDefault();
   }
 });
