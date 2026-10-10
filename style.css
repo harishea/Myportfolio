@@ -40,7 +40,57 @@ body {
   font-family: var(--font-body);
   background-color: var(--bg-color-dark);
   color: var(--text-color-dark);
-  padding-top: 80px;
+  padding-top: 0;
+}
+
+/* --- NEW BACKGROUND GRID & GRADIENT GLOW --- */
+.grid-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 120px 120px; /* Much larger grid boxes */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.grid-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 0% 50%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 100% 50%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    );
 }
 
 /* --- GENERAL RESET & UTILITIES --- */
@@ -62,9 +112,6 @@ section {
   align-items: center;
   background-color: transparent;
 }
-#home {
-  min-height: 90vh;
-}
 
 h1,
 h2,
@@ -79,7 +126,6 @@ h2 {
   margin-bottom: 40px;
 }
 
-/* Contact / Intro paragraphs centering */
 .contact-intro {
   text-align: center;
   max-width: 600px;
@@ -120,7 +166,7 @@ h2 {
   border-color: var(--accent-color-dark);
 }
 
-/* --- NEW GLASSY PILL NAVBAR --- */
+/* --- HEADER & NAVIGATION --- */
 .header {
   position: fixed;
   top: 25px;
@@ -135,7 +181,7 @@ h2 {
 .glassy-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
@@ -146,6 +192,10 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   position: relative;
+}
+
+.nav-header {
+  width: 0; /* Prevents disruption of flex alignment on desktop */
 }
 
 .nav-links-wrapper {
@@ -182,7 +232,8 @@ h2 {
   color: #ffffff;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%; /* Adjusted for absolute vertical centering */
+  transform: translate(-50%, -50%); /* Adjusted for perfect center offset */
   z-index: 10;
 }
 .logo-accent {
@@ -201,11 +252,10 @@ h2 {
 #home {
   position: relative;
   overflow: hidden;
-  padding: 100px 5%;
+  padding: 120px 5% 40px;
+  min-height: auto;
 }
-.hero-bg-gradient {
-  background: var(--soft-gradient-bg-dark);
-}
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -215,8 +265,7 @@ h2 {
   justify-content: center;
   gap: 50px;
   max-width: 1200px;
-  margin: auto;
-  margin-top: 30px;
+  margin: 0 auto;
 }
 
 .hero-text {
@@ -801,13 +850,16 @@ h2 {
   border-top: 1px solid var(--border-color-dark);
 }
 
-/* --- RESPONSIVE MEDIA QUERIES (CONSOLIDATED & CLEANED) --- */
+/* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 992px) {
+  #home {
+    padding: 100px 5% 40px;
+  }
   .hero-content {
     flex-direction: column;
     text-align: center;
     gap: 30px;
-    margin-top: 10px;
+    margin-top: 0;
   }
   .hero-text {
     text-align: center;
@@ -854,65 +906,73 @@ h2 {
 }
 
 @media (max-width: 850px) {
+  .header {
+    top: 15px;
+  }
   .menu-trigger {
     display: block;
-    z-index: 3001;
     color: #ffffff;
     font-size: 1.6rem;
   }
   .menu-trigger:hover {
     color: var(--accent-color-dark);
   }
+
+  /* Mobile Dropdown Setup */
+  .glassy-nav {
+    flex-direction: column;
+    width: 92%;
+    padding: 15px 20px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+  }
+
+  .nav-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .logo {
     position: relative;
     left: 0;
-    transform: none;
-    z-index: 3001;
+    top: 0; /* Resetting top for mobile flow */
+    transform: none; /* Removing absolute translation */
   }
-  .glassy-nav {
-    width: 92%;
-    padding: 12px 22px;
-    justify-content: space-between;
-  }
+
   .nav-links-wrapper {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    height: 100vh;
-    width: 78%;
-    max-width: 320px;
-    background: rgba(5, 5, 5, 0.95);
-    backdrop-filter: blur(25px) saturate(180%);
-    border-right: 1px solid rgba(0, 255, 255, 0.2);
-    box-shadow: 15px 0 40px rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 22px;
-    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 3000;
+    width: 100%;
+    max-height: 0; /* Hidden by default */
+    opacity: 0;
+    overflow: hidden;
+    gap: 10px;
+    transition:
+      max-height 0.4s ease,
+      opacity 0.4s ease,
+      margin-top 0.4s ease;
   }
+
+  /* Active dropdown state toggled by script.js */
   .nav-links-wrapper.active {
-    left: 0;
+    max-height: 400px;
+    opacity: 1;
+    margin-top: 20px; /* Separates links from the header */
   }
+
   .nav-links-wrapper .nav-btn {
-    font-size: 1.25rem;
-    font-weight: 600;
-    width: 80%;
-    padding: 14px 20px;
+    width: 100%;
     text-align: center;
-    border-radius: 16px;
-    color: #e0e0e0;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 1.15rem;
+    font-weight: 600;
   }
-  .nav-links-wrapper .nav-btn:hover,
-  .nav-links-wrapper .nav-btn:active {
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), transparent);
-    border-color: var(--accent-color-dark);
-    color: #ffffff;
-    transform: translateX(8px);
+  .nav-links-wrapper .nav-btn:hover {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--accent-color-dark);
   }
 }
 
